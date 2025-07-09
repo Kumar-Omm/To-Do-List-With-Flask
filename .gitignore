@@ -1,10 +1,32 @@
+# To-Do App .gitignore file
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
-static/
+*.env
+*.DS_Store
+
+# Flask
 instance/
-venv/
-.env
-*.sqlite3
 *.db
+*.sqlite3
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv/
+
+# VSCode settings (optional)
+.vscode/
+
+# macOS
+.DS_Store
+
+# Linux
+*.swp
+static/
+#windows
+Thumbs.db
+# Ignore all files in the static directory
