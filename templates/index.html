@@ -56,14 +56,14 @@
         <p>This is a simple To-Do application built with Flask and Bootstrap.</p>
         <h2> Add a ToDo</h2>
         <div class="container">
-            <form>
+            <form action="/" method="POST">
                 <div class="mb-3">
                     <label for="title" class="form-label">ToDo Title</label>
-                    <input type="text" class="form-control" id="title" aria-describedby="emailHelp">
+                    <input type="text" class="form-control" name="title" id="title" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="Desc" class="form-label">Description</label>
-                    <input type="text" class="form-control" id="Desc">
+                    <input type="text" name="desc" class="form-control" id="Desc">
                 </div>
                 <!-- <div class="mb-3">
                     <label for="date" class="form-label">Date</label>
@@ -77,30 +77,25 @@
                 <thead>
                     <tr>
                         <th scope="col">SNo</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Date/Time</th>
+                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for todo in all_todos %}
                     <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <th scope="row">{{ loop.index }}</th>
+                        <td>{{ todo.title }}</td>
+                        <td>{{ todo.desc }}</td>
+                        <td>{{ todo.date.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                        <td><a href="/delete/{{todo.SNo}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Delete</button></td>
+                        <td><a href="/edit/{{todo.SNo}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Edit</button></td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>@social</td>
-                    </tr>
+                        
+                    {% endfor %}
+
                 </tbody>
             </table>
         </div>
@@ -110,3 +105,5 @@
 </body>
 
 </html>
+<!-- This is the index.html template for the To-Do application. It displays a form to add new To-Do items and a table listing all existing To-Do items. -->
+<!-- The form submits data to the root URL ("/") via POST method, and the table displays the To-Do items with options to delete or edit each item. -->

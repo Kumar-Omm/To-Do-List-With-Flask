@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit ToDo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h1>Edit ToDo</h1>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="title" class="form-label">ToDo Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ todo.title }}">
+        </div>
+        <div class="mb-3">
+            <label for="desc" class="form-label">Description</label>
+            <input type="text" class="form-control" id="desc" name="desc" value="{{ todo.desc }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="/" class="btn btn-secondary">Cancel</a>
+    </form>
+</body>
+</html>
+<!-- This is the edit.html template for editing a To-Do item in the To-Do application. -->
